@@ -92,8 +92,10 @@ class _ProductScreenState extends State<ProductScreen> {
                 width: Dimensions.width!.w * 0.25,
                 child: Center(
                   child: LoadImage(
+                    width: Dimensions.width!.w * 0.25,
+                    height: Dimensions.size_120,
                     imageUrl: product.image!,
-                    fit: BoxFit.contain,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
