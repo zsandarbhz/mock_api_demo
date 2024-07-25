@@ -60,11 +60,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
   body() {
     switch (store.currentIndex) {
       case 0:
-        return HomeScreen(store: store);
-      case 1:
         return ProductScreen(store: store);
-      default:
+      case 1:
         return const CartScreen();
+      default:
+        return comingSoonBody();
     }
   }
 
@@ -91,29 +91,29 @@ class _DashboardScreenState extends State<DashboardScreen> {
           unselectedItemColor: ColorPalettes.greyColor,
           items: [
             BottomNavigationBarItem(
-                icon: Image.asset(ImageResource.getImagePath("home.png"),
+                icon: Image.asset(ImageResource.getImagePath("product.png"),
                     width: 22,
                     height: 22,
                     color: (store.currentIndex == 0)
                         ? ColorPalettes.primaryColor
                         : ColorPalettes.greyColor!),
-                label: 'home'.tr()),
+                label: 'products'.tr()),
             BottomNavigationBarItem(
-                icon: Image.asset(ImageResource.getImagePath("product.png"),
+                icon: Image.asset(ImageResource.getImagePath("cart.png"),
                     width: 22,
                     height: 22,
                     color: (store.currentIndex == 1)
                         ? ColorPalettes.primaryColor
                         : ColorPalettes.greyColor!),
-                label: 'products'.tr()),
-            BottomNavigationBarItem(
-                icon: Image.asset(ImageResource.getImagePath("menu.png"),
-                    width: 22,
-                    height: 22,
-                    color: (store.currentIndex == 4)
-                        ? ColorPalettes.primaryColor
-                        : ColorPalettes.greyColor!),
-                label: 'menu'.tr())
+                label: 'cart'.tr()),
+            // BottomNavigationBarItem(
+            //     icon: Image.asset(ImageResource.getImagePath("menu.png"),
+            //         width: 22,
+            //         height: 22,
+            //         color: (store.currentIndex == 4)
+            //             ? ColorPalettes.primaryColor
+            //             : ColorPalettes.greyColor!),
+            //     label: 'menu'.tr())
           ]);
     });
   }

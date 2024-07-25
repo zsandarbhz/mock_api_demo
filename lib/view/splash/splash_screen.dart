@@ -21,11 +21,9 @@ class SplashScreen extends StatelessWidget {
             child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Image.asset(ImageResource.getImagePath("splash_logo.png")),
-            // const SizedBox(height: Dimensions.size_5,),
             Text(
               'Splash',
-              style: TextStyles.black16w400,
+              style: TextStyles.blue20w800,
             )
           ],
           // height: 250,

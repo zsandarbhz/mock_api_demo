@@ -38,12 +38,7 @@ class _CartScreenState extends State<CartScreen> {
       body: SafeArea(child: Observer(builder: (_) {
         return Stack(
           children: [
-            Column(
-              children: [
-                const Header(),
-                Expanded(child: _body())
-              ],
-            ),
+            _body(),
             (store.showLoader)
                 ? const Center(child: CustomLoader())
                 : const SizedBox(),
@@ -139,9 +134,12 @@ class _CartScreenState extends State<CartScreen> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: Dimensions.globalHorizontalPadding),
                   child: Text(
-                    'Items',
+                    'items'.tr(),
                     style: TextStyles.blue16w700,
                   ),
+                ),
+                const SizedBox(
+                  height: Dimensions.size_5,
                 ),
                 Container(
                     color: ColorPalettes.itemViewColor,

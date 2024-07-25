@@ -1,6 +1,7 @@
 {
   "app_name": "Mock Api Demo",
   "products": "Products",
+  "items": "Items",
   "home": "Home",
   "menu": "Menu",
   "add": "Add",
@@ -8,5 +9,4 @@
   "order_details": "Order Details",
   "item_total": "Item Total",
   "total_pay": "Total Pay"
-
 }
