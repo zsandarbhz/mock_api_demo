@@ -1,6 +1,5 @@
 import 'package:mobx/mobx.dart';
 import 'package:mock_api_demo/app/core/local_db/entity/cart_item.dart';
-import 'package:mock_api_demo/app/core/mobx/common/common_store.dart';
 import 'package:mock_api_demo/app/core/mobx/dashboard/cart/cart_store.dart';
 import 'package:mock_api_demo/app/core/models/model.dart';
 import 'package:mock_api_demo/app/core/repository/repository.dart';
@@ -50,18 +49,29 @@ abstract class _ProductDetailStore with Store {
 
   @action
   addToCart(){
+    productCount++;
     var item = CartItem(
       name: product.name!,
       imageUrl: product.image!,
       productId: product.id,
       price: double.parse(product.price!),
-      quantity: productCount+1
+      quantity: productCount
     );
     cartStore.addToCart(item);
   }
 
   @action
   removeToCart(){
-    // cartStore.removeToCart(item)
+    if(productCount>0){
+      productCount--;
+      var item = CartItem(
+          name: product.name!,
+          imageUrl: product.image!,
+          productId: product.id,
+          price: double.parse(product.price!),
+          quantity: productCount
+      );
+      cartStore.addToCart(item);
+    }
   }
 }

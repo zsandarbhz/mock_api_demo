@@ -37,11 +37,11 @@ abstract class _CartStore with Store {
     showLoader = true;
     var data = await database.cartDao.findProductById(item.productId!);
     if(data!=null){
-      await database.cartDao.updateCartItem(item);
+      await database.cartDao.updateQuantity(item.productId!,item.quantity);
     }else{
       await database.cartDao.insertCartItem(item);
     }
-   fetchCartData();
+    await fetchCartData();
     showLoader = false;
   }
 
@@ -69,9 +69,10 @@ abstract class _CartStore with Store {
   }
 
   confirmOrder(BuildContext context) async {
-    await database.cartDao.clearCart();
-    // fetchCartData();
+    showLoader = true;
+    await database.cartDao.deleteAll(cartList);
+    await fetchCartData();
+    showLoader = false;
     AppToast.showSuccess("Order Summited");
-    // Navigator.pop(context);
   }
 }

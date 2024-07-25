@@ -1,16 +1,13 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mock_api_demo/app/core/mobx/common/common_store.dart';
 import 'package:mock_api_demo/app/core/mobx/dashboard/dashboard_store.dart';
 import 'package:mock_api_demo/app/core/mobx/dashboard/products/product_store.dart';
-import 'package:mock_api_demo/app/data/global_data_store.dart';
 import 'package:mock_api_demo/app/routes/paths.dart';
 import 'package:mock_api_demo/utils/colors.dart';
 import 'package:mock_api_demo/utils/dimensions.dart';
 import 'package:mock_api_demo/utils/text_styles.dart';
-import 'package:mock_api_demo/view/commonWidget/buttons/add_button.dart';
 import 'package:mock_api_demo/view/commonWidget/custom_loader.dart';
 import 'package:mock_api_demo/view/commonWidget/emptyScreen.dart';
 import 'package:mock_api_demo/view/commonWidget/load_image.dart';
@@ -50,18 +47,18 @@ class _ProductScreenState extends State<ProductScreen> {
               RefreshIndicator(
                 onRefresh: () async {},
                 child: ListView.separated(
-                                  itemCount: productStore.products.length,
-                                  shrinkWrap: true,
-                                  itemBuilder: (context, index) {
-                return productItemView(
-                    context, productStore.products[index]);
-                                  },
-                                  separatorBuilder: (BuildContext context, int index) {
-                return const SizedBox(
-                  height: Dimensions.size_10,
-                );
-                                  },
-                                ),
+                  itemCount: productStore.products.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return productItemView(
+                        context, productStore.products[index]);
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const SizedBox(
+                      height: Dimensions.size_10,
+                    );
+                  },
+                ),
               ),
               if (productStore.products.isEmpty) const EmptyScreen(),
               (productStore.subLoaderShow)
@@ -129,25 +126,6 @@ class _ProductScreenState extends State<ProductScreen> {
                   Text("₹ ${product.price}", style: TextStyles.blue12w700),
                   const SizedBox(
                     height: Dimensions.size_5,
-                  ),
-                  AddButton(
-                    count: productStore.productCount(product.id!),
-                    increment: () {
-                      if (GlobalDataStore.isLogin) {
-                        productStore.addToCart(product);
-                        setState(() {});
-                      } else {
-                        Navigator.pushNamed(context, Paths.loginScreen);
-                      }
-                    },
-                    decrement: () {
-                      if (GlobalDataStore.isLogin) {
-                        productStore.removeToCart(product);
-                        setState(() {});
-                      } else {
-                        Navigator.pushNamed(context, Paths.loginScreen);
-                      }
-                    },
                   ),
                 ],
               )),

@@ -39,7 +39,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       body: SafeArea(
           child: Column(
         children: [
-          const Header(),
+          const Header(title: "Product Details",),
           Expanded(child: _productDetailsBody(context))
         ],
       )),
@@ -112,7 +112,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     store.addToCart();
                   },
                   decrement: () {
-                    // store.productCount = store.productCount - 1;
+                    store.removeToCart();
                   }),
             ],
           ),

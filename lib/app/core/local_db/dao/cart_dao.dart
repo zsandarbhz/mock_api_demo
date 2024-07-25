@@ -21,6 +21,12 @@ abstract class CartDao{
   @delete
   Future<void> deleteCartItem(CartItem cartItem);
 
-  @Query('DELETE * FROM CartItem')
+  @delete
+  Future<int> deleteAll(List<CartItem> list);
+
+  @Query('UPDATE CartItem SET quantity = :quantity WHERE productId = :id')
+  Future<void> updateQuantity(String id, int quantity);
+
+  @Query('DELETE FROM CartItem')
   Future<void> clearCart();
 }

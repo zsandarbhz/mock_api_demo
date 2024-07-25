@@ -4,14 +4,13 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mock_api_demo/app/core/local_db/entity/cart_item.dart';
 import 'package:mock_api_demo/app/core/mobx/dashboard/cart/cart_store.dart';
-import 'package:mock_api_demo/utils/app_toast.dart';
 import 'package:mock_api_demo/utils/colors.dart';
+import 'package:mock_api_demo/utils/common_functions.dart';
 import 'package:mock_api_demo/utils/dimensions.dart';
 import 'package:mock_api_demo/utils/text_styles.dart';
 import 'package:mock_api_demo/view/commonWidget/buttons/add_button.dart';
 import 'package:mock_api_demo/view/commonWidget/buttons/primary_button.dart';
 import 'package:mock_api_demo/view/commonWidget/custom_loader.dart';
-import 'package:mock_api_demo/view/commonWidget/header/header.dart';
 import 'package:mock_api_demo/view/commonWidget/load_image.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +25,14 @@ class _CartScreenState extends State<CartScreen> {
   late CartStore store;
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   void didChangeDependencies() {
+    CommonFunctions.printLog("CartScreen");
     store = Provider.of<CartStore>(context, listen: false);
     store.loadInitData(context);
     super.didChangeDependencies();
@@ -50,7 +56,6 @@ class _CartScreenState extends State<CartScreen> {
 
   productItemView(BuildContext context, CartItem item) {
     return SizedBox(
-      // height: Dimensions.size_100,
       width: Dimensions.width!.w,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -102,14 +107,16 @@ class _CartScreenState extends State<CartScreen> {
             child: AddButton(
               count: item.quantity,
               increment: () {
-                // commonStore.addProductInCart(product, qty);
-                // setState(() {});
+                item.quantity ++;
+                store.addToCart(item);
               },
               decrement: () {
-                // if (item.quantity! >= 1) {
-                //   store.removeToCart(item);
-                //   setState(() {});
-                // }
+                if (item.quantity > 1) {
+                  item.quantity --;
+                  store.addToCart(item);
+                }else{
+                  store.removeToCart(item);
+                }
               },
             ),
           ),

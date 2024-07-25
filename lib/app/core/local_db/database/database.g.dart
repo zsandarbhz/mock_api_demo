@@ -189,8 +189,18 @@ class _$CartDao extends CartDao {
   }
 
   @override
+  Future<void> updateQuantity(
+    String id,
+    int quantity,
+  ) async {
+    await _queryAdapter.queryNoReturn(
+        'UPDATE CartItem SET quantity = ?2 WHERE productId = ?1',
+        arguments: [id, quantity]);
+  }
+
+  @override
   Future<void> clearCart() async {
-    await _queryAdapter.queryNoReturn('DELETE * FROM CartItem');
+    await _queryAdapter.queryNoReturn('DELETE FROM CartItem');
   }
 
   @override
@@ -206,5 +216,10 @@ class _$CartDao extends CartDao {
   @override
   Future<void> deleteCartItem(CartItem cartItem) async {
     await _cartItemDeletionAdapter.delete(cartItem);
+  }
+
+  @override
+  Future<int> deleteAll(List<CartItem> list) {
+    return _cartItemDeletionAdapter.deleteListAndReturnChangedRows(list);
   }
 }
