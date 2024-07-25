@@ -28,8 +28,6 @@ class _ProductScreenState extends State<ProductScreen> {
   final productStore = ProductStore();
   CommonStore? commonStore;
 
-  final showCartBtn = true;
-
   @override
   void didChangeDependencies() {
     commonStore = Provider.of<CommonStore>(context);
@@ -45,7 +43,9 @@ class _ProductScreenState extends State<ProductScreen> {
           return Stack(
             children: [
               RefreshIndicator(
-                onRefresh: () async {},
+                onRefresh: () async {
+                  commonStore!.authRepository.getProducts();
+                },
                 child: ListView.separated(
                   itemCount: productStore.products.length,
                   shrinkWrap: true,
@@ -64,7 +64,6 @@ class _ProductScreenState extends State<ProductScreen> {
               (productStore.subLoaderShow)
                   ? const Center(child: CustomLoader())
                   : const SizedBox(),
-              // if (showCartBtn) _cartView()
             ],
           );
         },
@@ -76,10 +75,7 @@ class _ProductScreenState extends State<ProductScreen> {
     return GestureDetector(
       onTap: () {
         var data = {"product": product};
-        Navigator.pushNamed(context, Paths.productDetailScreen, arguments: data)
-            .then((value) {
-          productStore.loadInitProduct(widget.store, commonStore!);
-        });
+        Navigator.pushNamed(context, Paths.productDetailScreen, arguments: data);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(
