@@ -1,0 +1,12 @@
+{
+  "app_name": "Mock Api Demo",
+  "products": "Products",
+  "home": "Home",
+  "menu": "Menu",
+  "add": "Add",
+  "review_order": "Review Order",
+  "order_details": "Order Details",
+  "item_total": "Item Total",
+  "total_pay": "Total Pay"
+
+}

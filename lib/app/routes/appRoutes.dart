@@ -1,0 +1,33 @@
+class AppRoutes {
+  static const String splash = "/splash";
+  static const String login = "/login";
+  static const String otpScreen = "/otpScreen";
+  static const String selectLocation = "/selectLocation";
+  static const String bottomNavigation = "/bottomNavigation";
+  static const String homeScreen = "/homeScreen";
+  static const String categoriesScreen = "/categoriesScreen";
+  static const String productList = "/productList";
+  static const String addproductList = "/addproductList";
+  static const String reviewOrderList = "/revieworderList";
+  static const String orderplacedList = "/orderplacedList";
+  static const String productDetails = "/productDetails";
+  static const String selectTime = "/selectTime";
+  static const String instantDelivery = "/instantDelivery";
+  static const String cartScreen = "/cartScreen";
+  static const String vacation = "/vacation";
+  static const String addVacation = "/addVacation";
+  static const String orderHistory = "/orderHistory";
+  static const String accountPreferences = "/accountPreferences";
+  static const String myProfileScreen = "/myProfileScreen";
+  static const String productSubscription = "/productSubscription";
+  static const String transaction = "/transaction";
+  static const String monthlyBill = "/monthlyBill";
+  static const String placeOrder = "/placeOrder";
+  static const String transactionHistory = "/transactionHistory";
+  static const String version = "/version";
+  static const String privacyPolicy = "/privacyPolicy";
+  static const String termsAndConditions = "/termsAndConditions";
+  static const String faq = "/faq";
+  static const String gettingStarted = "/gettingStarted";
+  static const String support = "/support";
+}
