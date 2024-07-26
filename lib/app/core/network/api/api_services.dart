@@ -19,9 +19,7 @@ class ApiService {
 
   Future<ProductResponse> getProducts() async {
     try {
-      CommonFunctions.printLog("URL ${ApiEndpoints.products}");
       final response = await dio!.get(ApiEndpoints.products);
-      CommonFunctions.printLog("RESPONSE ${response.data.toString()}");
       return  ProductResponse(status: true,message: "Success",data: ProductResponse.fromJson(response.data).data);
     } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
