@@ -7,9 +7,9 @@ import 'package:mock_api_demo/app/routes/paths.dart';
 import 'package:mock_api_demo/utils/colors.dart';
 import 'package:mock_api_demo/utils/dimensions.dart';
 import 'package:mock_api_demo/utils/text_styles.dart';
-import 'package:mock_api_demo/view/commonWidget/custom_loader.dart';
-import 'package:mock_api_demo/view/commonWidget/empty_screen.dart';
-import 'package:mock_api_demo/view/commonWidget/load_image.dart';
+import 'package:mock_api_demo/view/common_widget/custom_loader.dart';
+import 'package:mock_api_demo/view/common_widget/empty_screen.dart';
+import 'package:mock_api_demo/view/common_widget/load_image.dart';
 import 'package:provider/provider.dart';
 
 import '../../../app/core/models/product/product_data.dart';

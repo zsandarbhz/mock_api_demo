@@ -6,8 +6,8 @@ import 'package:mock_api_demo/utils/colors.dart';
 import 'package:mock_api_demo/utils/dimensions.dart';
 import 'package:mock_api_demo/utils/image_resource.dart';
 import 'package:mock_api_demo/utils/text_styles.dart';
-import 'package:mock_api_demo/view/commonWidget/buttons/primary_button.dart';
-import 'package:mock_api_demo/view/commonWidget/header/header.dart';
+import 'package:mock_api_demo/view/common_widget/buttons/primary_button.dart';
+import 'package:mock_api_demo/view/common_widget/header/header.dart';
 import 'package:mock_api_demo/view/dashboard/cart/cart_screen.dart';
 import 'package:mock_api_demo/view/dashboard/product/product_screen.dart';
 

@@ -6,10 +6,10 @@ import 'package:mock_api_demo/app/core/mobx/dashboard/productDetail/product_deta
 import 'package:mock_api_demo/utils/colors.dart';
 import 'package:mock_api_demo/utils/dimensions.dart';
 import 'package:mock_api_demo/utils/text_styles.dart';
-import 'package:mock_api_demo/view/commonWidget/buttons/add_button.dart';
-import 'package:mock_api_demo/view/commonWidget/custom_loader.dart';
-import 'package:mock_api_demo/view/commonWidget/header/header.dart';
-import 'package:mock_api_demo/view/commonWidget/load_image.dart';
+import 'package:mock_api_demo/view/common_widget/buttons/add_button.dart';
+import 'package:mock_api_demo/view/common_widget/custom_loader.dart';
+import 'package:mock_api_demo/view/common_widget/header/header.dart';
+import 'package:mock_api_demo/view/common_widget/load_image.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetailScreen extends StatelessWidget {
