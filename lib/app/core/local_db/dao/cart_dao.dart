@@ -1,11 +1,8 @@
-
-
 import 'package:floor/floor.dart';
 import 'package:mock_api_demo/app/core/local_db/entity/cart_item.dart';
 
 @dao
-abstract class CartDao{
-
+abstract class CartDao {
   @Query('SELECT * FROM CartItem')
   Future<List<CartItem>> findAllCartItems();
 

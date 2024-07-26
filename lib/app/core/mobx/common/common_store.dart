@@ -64,17 +64,15 @@ abstract class _CommonStore with Store {
   @action
   addProductInCart(ProductData product, int qty) async {
     var item = CartItem(
-      productId: product.id!,
-      name: product.name!,
-      imageUrl: product.image!,
-      price: double.parse(product.price!),
-      quantity: qty
-    );
+        productId: product.id!,
+        name: product.name!,
+        imageUrl: product.image!,
+        price: double.parse(product.price!),
+        quantity: qty);
     database.cartDao.insertCartItem(item);
   }
 
   // -------------------------------API CALLING---------------------------------------
-
 
   Future<List<ProductData>> productListApi() async {
     List<ProductData> list = [];
