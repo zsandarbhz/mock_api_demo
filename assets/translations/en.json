@@ -8,5 +8,6 @@
   "review_order": "Review Order",
   "order_details": "Order Details",
   "item_total": "Item Total",
-  "total_pay": "Total Pay"
+  "total_pay": "Total Pay",
+  "confirm": "Confirm"
 }

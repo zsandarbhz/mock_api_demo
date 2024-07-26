@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mock_api_demo/app/core/local_db/entity/cart_item.dart';
 import 'package:mock_api_demo/app/core/mobx/dashboard/cart/cart_store.dart';
 import 'package:mock_api_demo/utils/colors.dart';
-import 'package:mock_api_demo/utils/common_functions.dart';
 import 'package:mock_api_demo/utils/dimensions.dart';
 import 'package:mock_api_demo/utils/text_styles.dart';
 import 'package:mock_api_demo/view/commonWidget/buttons/add_button.dart';
@@ -14,37 +13,20 @@ import 'package:mock_api_demo/view/commonWidget/custom_loader.dart';
 import 'package:mock_api_demo/view/commonWidget/load_image.dart';
 import 'package:provider/provider.dart';
 
-class CartScreen extends StatefulWidget {
-  const CartScreen({super.key});
+class CartScreen extends StatelessWidget {
+  CartScreen({super.key});
 
-  @override
-  State<CartScreen> createState() => _CartScreenState();
-}
-
-class _CartScreenState extends State<CartScreen> {
   late CartStore store;
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
-  void didChangeDependencies() {
-    CommonFunctions.printLog("CartScreen");
+  Widget build(BuildContext context) {
     store = Provider.of<CartStore>(context, listen: false);
     store.loadInitData(context);
-    super.didChangeDependencies();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(child: Observer(builder: (_) {
         return Stack(
           children: [
-            _body(),
+            _body(context),
             (store.showLoader)
                 ? const Center(child: CustomLoader())
                 : const SizedBox(),
@@ -54,7 +36,7 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
-  productItemView(BuildContext context, CartItem item) {
+  productItemView(CartItem item) {
     return SizedBox(
       width: Dimensions.width!.w,
       child: Row(
@@ -125,7 +107,7 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
-  Widget _body() {
+  Widget _body(BuildContext context) {
     return Observer(builder: (_) {
       return Stack(
         children: [
@@ -158,7 +140,7 @@ class _CartScreenState extends State<CartScreen> {
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return productItemView(context, store.cartList[index]);
+                        return productItemView(store.cartList[index]);
                       },
                       separatorBuilder: (BuildContext context, int index) {
                         return const SizedBox(
@@ -181,7 +163,7 @@ class _CartScreenState extends State<CartScreen> {
                 const SizedBox(height: Dimensions.size_20,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: Dimensions.globalHorizontalPadding),
-                  child: PrimaryButton(btnName: "Confirm", action: (){
+                  child: PrimaryButton(btnName: 'confirm'.tr(), action: (){
                     store.confirmOrder(context);
                   } ),
                 ),

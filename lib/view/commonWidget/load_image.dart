@@ -29,7 +29,7 @@ class LoadImage extends StatelessWidget {
             width: 20,
             child: CircularProgressIndicator(strokeAlign: 1,)),
       ),
-      errorWidget: (context, url, error) => Image.asset(ImageResource.getImagePath('bannerImage.jpg'),fit: BoxFit.cover,),
+      errorWidget: (context, url, error) => Image.asset(ImageResource.getImagePath('product.png'),fit: BoxFit.cover,),
     );
   }
 }

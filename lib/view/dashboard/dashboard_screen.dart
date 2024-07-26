@@ -11,8 +11,6 @@ import 'package:mock_api_demo/view/commonWidget/header/header.dart';
 import 'package:mock_api_demo/view/dashboard/cart/cart_screen.dart';
 import 'package:mock_api_demo/view/dashboard/product/product_screen.dart';
 
-import 'home/home_screen.dart';
-
 class DashboardScreen extends StatefulWidget {
   final int selectedIndex;
 
@@ -62,7 +60,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       case 0:
         return ProductScreen(store: store);
       case 1:
-        return const CartScreen();
+        return CartScreen();
       default:
         return comingSoonBody();
     }
@@ -106,14 +104,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ? ColorPalettes.primaryColor
                         : ColorPalettes.greyColor!),
                 label: 'cart'.tr()),
-            // BottomNavigationBarItem(
-            //     icon: Image.asset(ImageResource.getImagePath("menu.png"),
-            //         width: 22,
-            //         height: 22,
-            //         color: (store.currentIndex == 4)
-            //             ? ColorPalettes.primaryColor
-            //             : ColorPalettes.greyColor!),
-            //     label: 'menu'.tr())
           ]);
     });
   }

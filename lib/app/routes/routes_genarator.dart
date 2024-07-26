@@ -20,7 +20,7 @@ class RouteGenerator {
             builder: (context) =>
                 ProductDetailScreen(data: setting.arguments as Map));
       case Paths.cartScreen:
-        return MaterialPageRoute(builder: (context) => const CartScreen());
+        return MaterialPageRoute(builder: (context) => CartScreen());
       default:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
     }

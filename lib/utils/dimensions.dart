@@ -1,5 +1,3 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class Dimensions {
   static double? width;
   static double? height;
