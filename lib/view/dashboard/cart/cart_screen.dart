@@ -89,14 +89,14 @@ class CartScreen extends StatelessWidget {
             child: AddButton(
               count: item.quantity,
               increment: () {
-                item.quantity ++;
+                item.quantity++;
                 store.addToCart(item);
               },
               decrement: () {
                 if (item.quantity > 1) {
-                  item.quantity --;
+                  item.quantity--;
                   store.addToCart(item);
-                }else{
+                } else {
                   store.removeToCart(item);
                 }
               },
@@ -160,14 +160,21 @@ class CartScreen extends StatelessWidget {
                   height: Dimensions.size_10,
                 ),
                 _orderDetailView(),
-                const SizedBox(height: Dimensions.size_20,),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: Dimensions.globalHorizontalPadding),
-                  child: PrimaryButton(btnName: 'confirm'.tr(), action: (){
-                    store.confirmOrder(context);
-                  } ),
+                const SizedBox(
+                  height: Dimensions.size_20,
                 ),
-                const SizedBox(height: Dimensions.size_20,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: Dimensions.globalHorizontalPadding),
+                  child: PrimaryButton(
+                      btnName: 'confirm'.tr(),
+                      action: () {
+                        store.confirmOrder(context);
+                      }),
+                ),
+                const SizedBox(
+                  height: Dimensions.size_20,
+                ),
               ],
             ),
           ),

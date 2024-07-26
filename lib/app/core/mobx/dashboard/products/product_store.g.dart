@@ -41,75 +41,15 @@ mixin _$ProductStore on _ProductStore, Store {
     });
   }
 
-  late final _$categoryIdAtom =
-      Atom(name: '_ProductStore.categoryId', context: context);
-
-  @override
-  int get categoryId {
-    _$categoryIdAtom.reportRead();
-    return super.categoryId;
-  }
-
-  @override
-  set categoryId(int value) {
-    _$categoryIdAtom.reportWrite(value, super.categoryId, () {
-      super.categoryId = value;
-    });
-  }
-
   late final _$_ProductStoreActionController =
       ActionController(name: '_ProductStore', context: context);
 
   @override
-  dynamic loadInitProduct(DashboardStore store, CommonStore store2) {
+  dynamic loadInitProduct(CommonStore store2) {
     final _$actionInfo = _$_ProductStoreActionController.startAction(
         name: '_ProductStore.loadInitProduct');
     try {
-      return super.loadInitProduct(store, store2);
-    } finally {
-      _$_ProductStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic onTapCategory(int catId) {
-    final _$actionInfo = _$_ProductStoreActionController.startAction(
-        name: '_ProductStore.onTapCategory');
-    try {
-      return super.onTapCategory(catId);
-    } finally {
-      _$_ProductStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic addToCart(ProductData product) {
-    final _$actionInfo = _$_ProductStoreActionController.startAction(
-        name: '_ProductStore.addToCart');
-    try {
-      return super.addToCart(product);
-    } finally {
-      _$_ProductStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic removeToCart(ProductData product) {
-    final _$actionInfo = _$_ProductStoreActionController.startAction(
-        name: '_ProductStore.removeToCart');
-    try {
-      return super.removeToCart(product);
-    } finally {
-      _$_ProductStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  int productCount(String productId) {
-    final _$actionInfo = _$_ProductStoreActionController.startAction(
-        name: '_ProductStore.productCount');
-    try {
-      return super.productCount(productId);
+      return super.loadInitProduct(store2);
     } finally {
       _$_ProductStoreActionController.endAction(_$actionInfo);
     }
@@ -119,8 +59,7 @@ mixin _$ProductStore on _ProductStore, Store {
   String toString() {
     return '''
 products: ${products},
-cartList: ${cartList},
-categoryId: ${categoryId}
+cartList: ${cartList}
     ''';
   }
 }

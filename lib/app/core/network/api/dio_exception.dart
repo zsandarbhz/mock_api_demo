@@ -16,10 +16,6 @@ class DioExceptions implements Exception {
         break;
       case DioErrorType.connectionError:
         message = "No Internet connection";
-        // message = _handleError(
-        //   dioError.response?.statusCode,
-        //   dioError.response?.data,
-        // );
         break;
       case DioErrorType.sendTimeout:
         message = "Send timeout in connection with API server";

@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mock_api_demo/app/core/mobx/dashboard/products/productDetail/product_detail_store.dart';
+import 'package:mock_api_demo/app/core/mobx/dashboard/productDetail/product_detail_store.dart';
 import 'package:mock_api_demo/utils/colors.dart';
 import 'package:mock_api_demo/utils/dimensions.dart';
 import 'package:mock_api_demo/utils/text_styles.dart';
@@ -11,35 +12,27 @@ import 'package:mock_api_demo/view/commonWidget/header/header.dart';
 import 'package:mock_api_demo/view/commonWidget/load_image.dart';
 import 'package:provider/provider.dart';
 
-class ProductDetailScreen extends StatefulWidget {
+class ProductDetailScreen extends StatelessWidget {
   final Map data;
 
-  const ProductDetailScreen({super.key, required this.data});
+  ProductDetailScreen({super.key, required this.data});
 
-  @override
-  State<ProductDetailScreen> createState() => _ProductDetailScreenState();
-}
-
-class _ProductDetailScreenState extends State<ProductDetailScreen> {
   late ProductDetailStore store;
 
   BuildContext? con;
 
   @override
-  void didChangeDependencies() {
-    store = Provider.of<ProductDetailStore>(context);
-    store.loadInitData(widget.data["product"]);
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    store = Provider.of<ProductDetailStore>(context);
+    store.loadInitData(data["product"]);
     con = context;
     return Scaffold(
       body: SafeArea(
           child: Column(
         children: [
-          const Header(title: "Product Details",),
+          Header(
+            title: 'product_details'.tr(),
+          ),
           Expanded(child: _productDetailsBody(context))
         ],
       )),
@@ -134,7 +127,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           SizedBox(
             height: Dimensions.size_5.h,
           ),
-          Text("PRODUCT DESCRIPTION", style: TextStyles.blue10w700),
+          Text('product_description'.tr(), style: TextStyles.blue10w700),
           SizedBox(
             height: Dimensions.size_5.h,
           ),

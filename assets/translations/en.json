@@ -9,5 +9,8 @@
   "order_details": "Order Details",
   "item_total": "Item Total",
   "total_pay": "Total Pay",
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "splash": "Splash",
+  "product_details": "Product Details",
+  "product_description": "PRODUCT DESCRIPTION"
 }

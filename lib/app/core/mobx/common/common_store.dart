@@ -42,15 +42,12 @@ abstract class _CommonStore with Store {
   }
 
   fetchData(BuildContext context) async {
-    CommonFunctions.printLog("fetchData");
     showLoader = true;
     final List<Future<dynamic>> fetcher = [
-      // categoryListApi(),
       productListApi(),
     ];
     var results = await Future.wait(fetcher);
     showLoader = false;
-    // categoriesList = results[0];
     productsList = results[0];
 
     Navigator.pushReplacementNamed(context, Paths.dashboardScreen);

@@ -5,9 +5,9 @@ import 'package:mock_api_demo/app/core/models/model.dart';
 import 'package:mock_api_demo/app/core/repository/repository.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../utils/app_constant.dart';
+import '../../../../../utils/app_constant.dart';
 
-part 'product_detail_store.g.dart';
+part '../productDetail/product_detail_store.g.dart';
 
 class ProductDetailStore = _ProductDetailStore with _$ProductDetailStore;
 

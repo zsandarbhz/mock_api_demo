@@ -58,7 +58,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   body() {
     switch (store.currentIndex) {
       case 0:
-        return ProductScreen(store: store);
+        return ProductScreen();
       case 1:
         return CartScreen();
       default:

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mock_api_demo/app/core/mobx/common/common_store.dart';
 import 'package:mock_api_demo/utils/colors.dart';
@@ -22,7 +23,7 @@ class SplashScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Splash',
+              'splash'.tr(),
               style: TextStyles.blue20w800,
             )
           ],

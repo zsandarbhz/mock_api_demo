@@ -14,7 +14,7 @@ class AddButton extends StatelessWidget {
   final dynamic decrement;
 
   const AddButton(
-  {super.key,
+      {super.key,
       this.isDisable = false,
       this.btnName = "Add",
       this.txtColor = ColorPalettes.primaryColor,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mock_api_demo/app/core/mobx/common/common_store.dart';
-import 'package:mock_api_demo/app/core/mobx/dashboard/dashboard_store.dart';
 import 'package:mock_api_demo/app/core/mobx/dashboard/products/product_store.dart';
 import 'package:mock_api_demo/app/routes/paths.dart';
 import 'package:mock_api_demo/utils/colors.dart';
@@ -15,28 +14,16 @@ import 'package:provider/provider.dart';
 
 import '../../../app/core/models/product/product_data.dart';
 
-class ProductScreen extends StatefulWidget {
-  final DashboardStore store;
+class ProductScreen extends StatelessWidget {
+  ProductScreen({super.key});
 
-  const ProductScreen({super.key, required this.store});
-
-  @override
-  State<ProductScreen> createState() => _ProductScreenState();
-}
-
-class _ProductScreenState extends State<ProductScreen> {
   final productStore = ProductStore();
   CommonStore? commonStore;
 
   @override
-  void didChangeDependencies() {
-    commonStore = Provider.of<CommonStore>(context);
-    productStore.loadInitProduct(widget.store, commonStore!);
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    commonStore = Provider.of<CommonStore>(context);
+    productStore.loadInitProduct(commonStore!);
     return Scaffold(
       body: SafeArea(child: Observer(
         builder: (_) {
@@ -75,7 +62,8 @@ class _ProductScreenState extends State<ProductScreen> {
     return GestureDetector(
       onTap: () {
         var data = {"product": product};
-        Navigator.pushNamed(context, Paths.productDetailScreen, arguments: data);
+        Navigator.pushNamed(context, Paths.productDetailScreen,
+            arguments: data);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(

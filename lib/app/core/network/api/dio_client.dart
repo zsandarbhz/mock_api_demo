@@ -15,7 +15,6 @@ class DioClient {
       receiveTimeout: const Duration(seconds: 10),
     );
     Dio dio = Dio(options);
-    // dio.options.headers['platform'] = _getPlatform();
 
     dio.interceptors.addAll(<Interceptor>[
       _loggingInterceptor(),
@@ -29,11 +28,6 @@ class DioClient {
       options.headers.addAll({
         "Content-Type": "application/json",
       });
-      // if (GlobalDataStore.token != null) {
-      //   options.headers.addAll({
-      //     "Authorization": "Bearer ${GlobalDataStore.token}",
-      //   });
-      // }
       return handler.next(options);
     }, onResponse: (response, handler) {
       return handler.next(response);

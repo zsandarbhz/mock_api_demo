@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mock_api_demo/app/core/mobx/dashboard/dashboard_store.dart';
 import 'package:mock_api_demo/app/routes/paths.dart';
 
 import '../../view/view.dart';
@@ -12,9 +11,7 @@ class RouteGenerator {
       case Paths.dashboardScreen:
         return MaterialPageRoute(builder: (context) => const DashboardScreen());
       case Paths.productScreen:
-        return MaterialPageRoute(
-            builder: (context) =>
-                ProductScreen(store: setting.arguments as DashboardStore));
+        return MaterialPageRoute(builder: (context) => ProductScreen());
       case Paths.productDetailScreen:
         return MaterialPageRoute(
             builder: (context) =>

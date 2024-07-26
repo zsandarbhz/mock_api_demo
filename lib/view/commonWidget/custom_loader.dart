@@ -1,7 +1,7 @@
-import 'package:mock_api_demo/utils/colors.dart';
-import 'package:mock_api_demo/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mock_api_demo/utils/colors.dart';
+import 'package:mock_api_demo/utils/dimensions.dart';
 
 class CustomLoader extends StatelessWidget {
   const CustomLoader({super.key});
@@ -17,10 +17,9 @@ class CustomLoader extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(Dimensions.size_25),
-          child: Lottie.asset('assets/animations/loader.json',height: 80),
+          child: Lottie.asset('assets/animations/loader.json', height: 80),
         ),
       ),
     );
   }
 }
-
